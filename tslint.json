@@ -1,0 +1,118 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {
+    "no-unused-expression": true
+  },
+  "rules": {
+    "array-type": [
+      false
+    ],
+    "class-name": true,
+    "curly": false,
+    "eofline": true,
+    "forin": true,
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "interface-name": [
+      true,
+      "always-prefix"
+    ],
+    "label-position": true,
+    "max-line-length": [
+      true,
+      130
+    ],
+    "member-access": true,
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "instance-method"
+        ]
+      }
+    ],
+    "no-misused-new": true,
+    "no-construct": true,
+    "no-duplicate-variable": true,
+    "no-empty": true,
+    "no-empty-interface": false,
+    "arrow-parens": false,
+    "no-unused-expression": [
+      false,
+      "allow-fast-null-checks"
+    ],
+    "no-eval": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": true,
+    "no-string-throw": true,
+    "no-switch-case-fall-through": true,
+    "no-namespace": true,
+    "no-var-requires": false,
+    "no-trailing-whitespace": [
+      true,
+      "ignore-jsdoc"
+    ],
+    "no-unnecessary-initializer": true,
+    "no-var-keyword": true,
+    "no-console": true,
+    "object-literal-sort-keys": false,
+    "radix": true,
+    "trailing-comma": false,
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "typedef": [
+      false,
+      "call-signature",
+      "parameter",
+      "member-variable-declaration"
+    ],
+    "one-line": [
+      false
+    ],
+    "ordered-imports": [
+      false
+    ],
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "variable-name": false,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ]
+  },
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.ts"
+    ]
+  }
+}

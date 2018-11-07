@@ -1,0 +1,7 @@
+--reporter spec
+--require ts-node/register
+--require reflect-metadata/Reflect
+--recursive
+--slow 5000
+--timeout 5000
+--exit
