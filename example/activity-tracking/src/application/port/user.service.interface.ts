@@ -1,5 +1,5 @@
-import { User } from 'application/domain/model/user'
 import { IService } from './service.interface'
+import { User } from '../domain/model/user'
 
 /**
  * User service interface.

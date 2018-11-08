@@ -1,6 +1,6 @@
-import { User } from 'application/domain/model/user'
 import { IRepository } from './repository.interface'
 import { IQuery } from './query.interface'
+import { User } from '../domain/model/user'
 
 /**
  * Interface of the user repository.
