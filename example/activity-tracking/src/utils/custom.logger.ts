@@ -9,7 +9,7 @@ require('winston-daily-rotate-file')
 @injectable()
 export class CustomLogger implements ILogger {
     private readonly _logger: Logger
-    private readonly _env: string = process.env.NODE_ENV === 'development' ? 'debug' : 'info'
+    private readonly _env: string = (process.env.NODE_ENV || Default.NODE_ENV) === 'development' ? 'debug' : 'info'
     private readonly _logDir = process.env.LOG_DIR || Default.LOG_DIR
 
     constructor() {

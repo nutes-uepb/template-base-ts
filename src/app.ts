@@ -85,7 +85,7 @@ export class App {
             ))
 
             // Middleware swagger. It should not run in the test environment.
-            if (process.env.NODE_ENV && process.env.NODE_ENV !== 'test') {
+            if ((process.env.NODE_ENV || Default.NODE_ENV) !== 'test') {
                 const options = {
                     customCss: '.swagger-ui .topbar { display: none }',
                     customfavIcon: 'http://nutes.uepb.edu.br/wp-content/uploads/2014/01/icon.fw_.png',

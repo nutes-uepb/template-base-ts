@@ -1,6 +1,5 @@
 import http from 'http'
 import https from 'https'
-import dotenv from 'dotenv'
 import { Application } from 'express'
 import { Identifier } from './src/di/identifiers'
 import { DI } from './src/di/di'
@@ -9,12 +8,27 @@ import { BackgroundService } from './src/background/background.service'
 import { Default } from './src/utils/default'
 import { App } from './src/app'
 
-// Define values in .env in environment variables
-dotenv.config()
+/**
+ * Used only in development or test to load environment variables.
+ * NOTE:
+ *  For the development and testing environment, create the .env file
+ *  in the root directory of your project and add your environment variables
+ *  to new lines in the format NAME=VALUE. For example:
+ *      DB_HOST=localhost
+ *      DB_USER=root
+ *      DB_PASS=mypass
+ *  The fastest way is to create a copy of the .env.example file.
+ *
+ *  NOTE: For the production environment it is highly recommended not to use .env.
+ *  Manually enter the environment variables that are required for your application.
+ */
+if ((process.env.NODE_ENV || Default.NODE_ENV) !== 'production') {
+    require(`dotenv`).config()
+}
 
+const logger: ILogger = DI.getInstance().getContainer().get<ILogger>(Identifier.LOGGER)
 const app: Application = (DI.getInstance().getContainer().get<App>(Identifier.APP)).getExpress()
 const backgroundServices: BackgroundService = DI.getInstance().getContainer().get(Identifier.BACKGROUND_SERVICE)
-const logger: ILogger = DI.getInstance().getContainer().get<ILogger>(Identifier.LOGGER)
 const port_http = process.env.PORT_HTTP || Default.PORT_HTTP
 const port_https = process.env.PORT_HTTPS || Default.PORT_HTTPS
 
@@ -34,7 +48,7 @@ if ((process.env.NODE_ENV || Default.NODE_ENV) === 'production') {
         // set to https://acme-staging-v02.api.letsencrypt.org/directory in dev
         server: 'https://acme-v02.api.letsencrypt.org/directory',
         version: 'draft-12',
-        email: 'douglasrafaelcg@gmail.com',
+        email: 'myemail@mydomain.com',
         // When set to true, this always accepts the LetsEncrypt TOS. When a string it checks the agreement url first.
         agreeTos: true,
         // Can be either of:

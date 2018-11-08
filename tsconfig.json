@@ -61,6 +61,7 @@
     "exclude": [
       "dist",
       "node_modules",
-      "**/*.spec.ts"
+      "**/*.spec.ts",
+      "exemple"
     ]
   }
