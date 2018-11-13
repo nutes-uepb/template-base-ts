@@ -47,7 +47,3 @@ export class BackgroundService {
         }
     }
 }
-
-export interface IBackroudTask {
-
-}

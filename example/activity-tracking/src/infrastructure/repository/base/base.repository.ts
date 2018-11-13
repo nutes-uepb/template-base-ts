@@ -42,7 +42,7 @@ export abstract class BaseRepository<T extends Entity, TModel> implements IRepos
                 .skip(Number((q.pagination.limit * q.pagination.page) - q.pagination.limit))
                 .limit(Number(q.pagination.limit))
                 .exec() // execute query
-                .then((result: any) => resolve(result))
+                .then((result: any) => resolve(result.map(item => this.mapper.transform(item))))
                 .catch(err => reject(this.mongoDBErrorListener(err)))
         })
     }
